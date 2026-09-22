@@ -60,7 +60,6 @@
     margin: 0 0 26px;
   }
 
-  /* 版本選擇 */
   .pick {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -86,6 +85,7 @@
     border-color: var(--jade);
     color: #fff;
   }
+  .tab.wide { grid-column: 1 / -1; }
   .tab:focus-visible { outline: 3px solid var(--jade); outline-offset: 2px; }
 
   .summary {
@@ -109,13 +109,41 @@
   }
   .dayhead:first-child { margin-top: 0; }
 
-  .tl { display: grid; gap: 10px; }
+  .tl {
+    display: grid;
+    gap: 10px;
+    position: relative;
+    padding-left: 34px;
+  }
+  .tl::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 26px;
+    bottom: 26px;
+    width: 2px;
+    background: var(--line);
+  }
   .stop {
+    position: relative;
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 6px;
     padding: 16px 18px;
   }
+  .stop::before {
+    content: "";
+    position: absolute;
+    left: -32px;
+    top: 21px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 3px solid var(--jade);
+  }
+  .meal::before { border-color: var(--vermilion); }
+  .ride::before { border-color: var(--line); background: var(--line); }
   .time {
     font-family: var(--serif);
     font-size: 19px;
@@ -141,11 +169,43 @@
     font-size: 16px;
     color: var(--jade);
   }
+  .go ul, .opt {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .go li, .opt li { margin-bottom: 5px; }
+  .go li:last-child, .opt li:last-child { margin-bottom: 0; }
+  .opt { font-size: 16px; color: var(--ink-soft); }
+  .opt b { color: var(--ink); font-weight: 500; }
   .stop a { color: var(--jade); }
 
-  .meal { border-left: 5px solid var(--vermilion); }
   .meal .time { color: var(--vermilion); }
   .ride { background: var(--jade-soft); border-color: var(--jade-soft); }
+
+  .map {
+    margin: 0 0 24px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 14px 14px 10px;
+  }
+  .map svg { display: block; width: 100%; height: auto; }
+  .map figcaption {
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .m-water { fill: #E3EDEA; }
+  .m-route { fill: none; stroke: var(--jade); stroke-width: 2.5; stroke-dasharray: 7 5; opacity: .75; }
+  .m-route2 { fill: none; stroke: var(--vermilion); stroke-width: 2.5; stroke-dasharray: 7 5; opacity: .75; }
+  .m-pin { fill: var(--jade); }
+  .m-pin-off { fill: #CFC7B7; }
+  .m-label-off { font-family: var(--serif); font-size: 14px; fill: #A79E8C; }
+  .m-pin-o { fill: var(--surface); stroke: var(--jade); stroke-width: 3; }
+  .m-label { font-family: var(--serif); font-size: 15px; fill: var(--ink); }
+  .m-sub { font-size: 12px; fill: var(--ink-soft); font-family: var(--sans); }
+  .m-key { font-size: 13px; font-family: var(--sans); fill: var(--ink-soft); }
 
   .box {
     margin-top: 26px;
@@ -161,6 +221,8 @@
     letter-spacing: .04em;
   }
   .box ul { margin: 0; padding-left: 20px; font-size: 16px; color: var(--ink-soft); }
+  .box ul ul { margin: 6px 0 0; padding-left: 18px; }
+  .box ul ul li { margin-bottom: 4px; }
   .box li { margin-bottom: 8px; }
   .box li:last-child { margin-bottom: 0; }
   .box b { color: var(--ink); font-weight: 500; }
@@ -189,11 +251,33 @@
     <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false">一日<br>開車</button>
     <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false">兩天一夜<br>高鐵</button>
     <button class="tab" role="tab" id="t4" aria-controls="p4" aria-selected="false">兩天一夜<br>開車</button>
+    <button class="tab wide" role="tab" id="t5" aria-controls="p5" aria-selected="false">各景點休館日</button>
   </div>
 
   <!-- ===== 一日・高鐵 ===== -->
   <section id="p1" role="tabpanel" aria-labelledby="t1">
-    <p class="summary"><b>一日・高鐵</b><br>汐止約 09:30 出門，約 22:15 到家。<br>中午到台南用餐，下午兩個點，晚餐後回程。</p>
+    <p class="summary"><b>一日・高鐵</b><br>汐止約 09:30 出門，約 22:15 到家。<br>三人搭<b>同一班高鐵</b>，台中的同行者在台中站上車。</p>
+
+    <figure class="map">
+      <svg viewBox="0 0 440 340" role="img" aria-label="行程路線示意圖">
+        <path class="m-water" d="M0 8 L58 8 C46 78 34 148 26 218 L0 258 Z"/>
+        <text class="m-key" x="6" y="282">台江內海</text>
+        <path class="m-route" d="M 374 286 L 192 96"/>
+        <path class="m-route" d="M 192 96 L 252 158"/>
+        <path class="m-route" d="M 252 158 L 374 286"/>
+        <circle class="m-pin-off" cx="72" cy="92" r="5"/>
+        <text class="m-label-off" x="72" y="120" text-anchor="middle">安平老街</text>
+        <circle class="m-pin" cx="192" cy="96" r="7"/>
+        <text class="m-label" x="192" y="64" text-anchor="middle">中西區</text>
+        <text class="m-sub" x="192" y="48" text-anchor="middle">赤崁樓・國華街・林百貨</text>
+        <circle class="m-pin" cx="252" cy="158" r="7"/>
+        <text class="m-label" x="268" y="163" text-anchor="start">東區</text>
+        <text class="m-sub" x="268" y="179" text-anchor="start">毛蔬</text>
+        <circle class="m-pin" cx="374" cy="286" r="7"/>
+        <text class="m-label" x="374" y="314" text-anchor="middle">高鐵台南站</text>
+      </svg>
+      <figcaption>高鐵台南站 → 中西區（午餐、老街、林百貨）→ 東區（晚餐）→ 高鐵台南站</figcaption>
+    </figure>
 
     <div class="tl">
       <div class="stop ride">
@@ -204,14 +288,20 @@
 
       <div class="stop ride">
         <p class="time">10:15</p>
-        <h3>高鐵南港站發車</h3>
-        <p>到台南約 1 小時 35 分。台中同行者約 11:05 發車。</p>
+        <h3>南港站上車・南下</h3>
+        <p>同一班車約 11:05 停靠台中站，台中的同行者在該站上車會合。</p>
+        <p>南港到台南約 1 小時 35 分。</p>
       </div>
 
       <div class="stop">
         <p class="time">約 11:50</p>
-        <h3>抵達高鐵台南站・會合</h3>
-        <div class="go">轉 <b>H31 快捷公車</b>進市區，約 30 分鐘。憑當日高鐵票根免費。</div>
+        <h3>抵達高鐵台南站</h3>
+        <div class="go">
+          <ul>
+          <li><b>預約計程車</b>　約 25 分鐘，車資約 350–450 元</li>
+          <li><b>H31 快捷公車</b>　約 30 分鐘，憑當日高鐵票根免費</li>
+          </ul>
+        </div>
       </div>
 
       <div class="stop meal">
@@ -234,7 +324,12 @@
         <h3>林百貨</h3>
         <p>百年老百貨，室內有冷氣可休息，頂樓有神社與觀景台。伴手禮好買。</p>
         <p>中西區忠義路二段63號</p>
-        <div class="go">步行約 10 分鐘，或叫車約 5 分鐘。</div>
+        <div class="go">
+          <ul>
+          <li><b>步行</b>　約 10 分鐘</li>
+          <li><b>計程車</b>　約 5 分鐘</li>
+          </ul>
+        </div>
       </div>
 
       <div class="stop meal">
@@ -242,51 +337,102 @@
         <h3>晚餐・毛蔬</h3>
         <p>蔬食。米其林指南推薦。</p>
         <p>東區府東街43號</p>
-        <div class="go">叫車約 10–15 分鐘。</div>
+        <div class="go">計程車約 10–15 分鐘，市區短程約 120–170 元。</div>
       </div>
 
       <div class="stop ride">
         <p class="time">約 19:40</p>
         <h3>前往高鐵台南站</h3>
-        <p>叫車約 25 分鐘。</p>
+        <ul class="opt">
+          <li><b>預約計程車</b>　約 25 分鐘</li>
+          <li><b>H31 公車</b>　約 30 分鐘，回程需付費 18–36 元</li>
+        </ul>
       </div>
 
       <div class="stop ride">
         <p class="time">約 20:15</p>
         <h3>高鐵北返</h3>
+        <p>回程也是同一班車，台中的同行者在台中站（約 21:00）下車。</p>
         <p>南港約 21:55 到站，汐止約 22:15。</p>
       </div>
     </div>
 
     <div class="box">
+      <h4>叫車與車資</h4>
+      <ul>
+        <li><b>LINE GO</b>：LINE 內搜尋「LINE GO」加好友即可叫車，<b>最多可預約 7 天後</b>的車，24 小時都有，適合先把每一段排好。</li>
+        <li><b>Uber</b>：即時叫車，也可預約。車資出發前先顯示，不必擔心跳表。</li>
+        <li>高鐵台南站、台南火車站都有排班計程車，臨時要用可直接搭。</li>
+        <li><b>費率</b>：起跳 85 元（含 1.25 公里），之後每 200 公尺 5 元。晚上 11 點到早上 6 點加兩成。</li>
+        <li><b>常見車資</b>：市區短程約 120–170 元；市區到安平約 200–280 元；市區到花園夜市約 150–200 元；高鐵站到中西區約 350–450 元。</li>
+      </ul>
+    </div>
+
+    <div class="box">
       <h4>小提醒</h4>
       <ul>
+        <li>去回程都劃<b>同一班車</b>，座位可以劃在一起。</li>
         <li>兩家餐廳都會先訂位，蔬食、不加五辛。</li>
         <li>高鐵票根請留著，進市區的公車憑票根免費。</li>
-        <li>下午兩個點都在市區，彼此步行可達，不必一直上下車。</li>
       </ul>
     </div>
   </section>
 
   <!-- ===== 一日・開車 ===== -->
   <section id="p2" role="tabpanel" aria-labelledby="t2" hidden>
-    <p class="summary"><b>一日・開車</b><br>汐止 07:30 出發，回到家約 23:30。<br>單程約 3.5–4 小時，一日來回車程較長。</p>
+    <p class="summary"><b>一日・開車</b><br>汐止約 08:00 出門，約 22:35 到家。<br>先搭高鐵到台中，<b>在台中高鐵站上車</b>，之後改開車南下。</p>
+
+    <figure class="map">
+      <svg viewBox="0 0 440 340" role="img" aria-label="行程路線示意圖">
+        <path class="m-water" d="M0 8 L58 8 C46 78 34 148 26 218 L0 258 Z"/>
+        <text class="m-key" x="6" y="282">台江內海</text>
+        <text class="m-key" x="434" y="20" text-anchor="end">↑ 國道1號・往台中</text>
+        <path class="m-route" d="M 404 28 L 192 96"/>
+        <path class="m-route" d="M 192 96 L 72 92"/>
+        <path class="m-route" d="M 72 92 L 252 158"/>
+        <path class="m-route" d="M 252 158 L 404 28"/>
+        <circle class="m-pin" cx="72" cy="92" r="7"/>
+        <text class="m-label" x="72" y="120" text-anchor="middle">安平老街</text>
+        <circle class="m-pin" cx="192" cy="96" r="7"/>
+        <text class="m-label" x="192" y="64" text-anchor="middle">中西區</text>
+        <text class="m-sub" x="192" y="48" text-anchor="middle">赤崁樓・國華街・林百貨</text>
+        <circle class="m-pin" cx="252" cy="158" r="7"/>
+        <text class="m-label" x="268" y="163" text-anchor="start">東區</text>
+        <text class="m-sub" x="268" y="179" text-anchor="start">毛蔬</text>
+        <circle class="m-pin-off" cx="374" cy="286" r="5"/>
+        <text class="m-label-off" x="374" y="314" text-anchor="middle">高鐵台南站</text>
+      </svg>
+      <figcaption>台中高鐵站接送 → 中西區（午餐、老街）→ 安平老街 → 東區（晚餐）→ 原路北返</figcaption>
+    </figure>
 
     <div class="tl">
       <div class="stop ride">
-        <p class="time">07:30</p>
-        <h3>汐止出發（國道1號南下）</h3>
-        <p>約 330 公里、3.5–4 小時，中途休息一次。台中同行者約 09:45 出發。</p>
+        <p class="time">約 08:00</p>
+        <h3>汐止 → 高鐵南港站</h3>
+        <p>計程車約 15 分鐘。</p>
+      </div>
+
+      <div class="stop ride">
+        <p class="time">08:30</p>
+        <h3>南港站上車 → 高鐵台中站</h3>
+        <p>約 1 小時，約 09:30 抵達。</p>
       </div>
 
       <div class="stop">
-        <p class="time">約 11:45</p>
+        <p class="time">約 09:40</p>
+        <h3>台中高鐵站・接送會合</h3>
+        <p>同行者開車在高鐵台中站（烏日）候車區接。</p>
+        <div class="go">之後改開車南下台南，約 1 小時 45 分鐘。</div>
+      </div>
+
+      <div class="stop">
+        <p class="time">約 11:30</p>
         <h3>抵達台南・停車</h3>
         <p>公園路兵配場免費停車，走到赤崁樓約 10 分鐘。</p>
       </div>
 
       <div class="stop meal">
-        <p class="time">約 12:20</p>
+        <p class="time">12:00</p>
         <h3>午餐・赤崁璽樓</h3>
         <p>蔬食。老洋樓改建。</p>
         <p>中西區西門路二段372巷10號<br>電話 <a href="tel:062245179">06-224-5179</a></p>
@@ -294,37 +440,44 @@
       </div>
 
       <div class="stop">
-        <p class="time">約 14:00</p>
+        <p class="time">約 13:40</p>
         <h3>赤崁樓周邊・國華街</h3>
         <p>老字號餅舖、蜜餞、乾貨與小吃老店。</p>
         <div class="go">車不用動，整區步行 3–10 分鐘。</div>
       </div>
 
       <div class="stop">
-        <p class="time">約 16:00</p>
+        <p class="time">約 15:40</p>
         <h3>安平老街</h3>
         <p>蜜餞、蝦餅老鋪林立，遊客最多的一條老街。</p>
         <div class="go">開車約 20 分鐘。安億停車場免費，步行約 10 分鐘。</div>
       </div>
 
       <div class="stop meal">
-        <p class="time">18:00</p>
+        <p class="time">17:40</p>
         <h3>晚餐・毛蔬</h3>
         <p>蔬食。東區府東街43號。</p>
         <div class="go">自安平開車約 20–25 分鐘。</div>
       </div>
 
       <div class="stop ride">
-        <p class="time">約 19:30</p>
-        <h3>北返</h3>
-        <p>汐止約 23:00–23:30 到家。</p>
+        <p class="time">約 19:10</p>
+        <h3>開車回台中高鐵站</h3>
+        <p>約 1 小時 45 分鐘，約 21:00 抵達。</p>
+      </div>
+
+      <div class="stop ride">
+        <p class="time">約 21:15</p>
+        <h3>台中站搭高鐵北返</h3>
+        <p>南港約 22:15 到站，汐止約 22:35。</p>
       </div>
     </div>
 
     <div class="box">
       <h4>小提醒</h4>
       <ul>
-        <li>這一版來回車程約 7–8 小時，夜間還要開回北部。若想輕鬆些，可改看「兩天一夜」。</li>
+        <li>來回都在台中高鐵站接送，車上時間約 1 小時 45 分鐘，比從北部一路開車輕鬆許多。</li>
+        <li>高鐵去回程各買一段（南港↔台中），不必買到台南。</li>
         <li>兩家餐廳都會先訂位，蔬食、不加五辛。</li>
       </ul>
     </div>
@@ -332,20 +485,60 @@
 
   <!-- ===== 兩天・高鐵 ===== -->
   <section id="p3" role="tabpanel" aria-labelledby="t3" hidden>
-    <p class="summary"><b>兩天一夜・高鐵</b><br>第一天汐止約 09:00 出門，第二天約 19:40 到家。<br>節奏最從容的一版。</p>
+    <p class="summary"><b>兩天一夜・高鐵</b><br>第一天汐止約 09:00 出門，第二天約 17:00 到家。<br>三人搭<b>同一班高鐵</b>，台中的同行者在台中站上車。節奏最從容的一版。</p>
+
+    <figure class="map">
+      <svg viewBox="0 0 440 340" role="img" aria-label="行程路線示意圖">
+        <path class="m-water" d="M0 8 L58 8 C46 78 34 148 26 218 L0 258 Z"/>
+        <text class="m-key" x="6" y="282">台江內海</text>
+        <path class="m-route" d="M 374 286 Q 236 236 192 96"/>
+        <path class="m-route2" d="M 192 96 L 72 92"/>
+        <path class="m-route2" d="M 72 92 L 252 158"/>
+        <path class="m-route2" d="M 252 158 L 374 286"/>
+        <circle class="m-pin" cx="72" cy="92" r="7"/>
+        <text class="m-label" x="72" y="120" text-anchor="middle">安平老街</text>
+        <path class="m-route" d="M 192 96 L 286 46"/>
+        <circle class="m-pin" cx="192" cy="96" r="7"/>
+        <text class="m-label" x="192" y="64" text-anchor="middle">中西區</text>
+        <text class="m-sub" x="192" y="48" text-anchor="middle">赤崁樓・國華街・林百貨</text>
+        <circle class="m-pin" cx="286" cy="46" r="7"/>
+        <text class="m-label" x="302" y="51" text-anchor="start">花園夜市</text>
+        <circle class="m-pin" cx="252" cy="158" r="7"/>
+        <text class="m-label" x="268" y="163" text-anchor="start">東區</text>
+        <text class="m-sub" x="268" y="179" text-anchor="start">毛蔬</text>
+        <circle class="m-pin" cx="374" cy="286" r="7"/>
+        <text class="m-label" x="374" y="314" text-anchor="middle">高鐵台南站</text>
+        <line class="m-route" x1="120" y1="292" x2="156" y2="292"/>
+        <text class="m-key" x="163" y="296">第一天</text>
+        <line class="m-route2" x1="120" y1="312" x2="156" y2="312"/>
+        <text class="m-key" x="163" y="316">第二天</text>
+      </svg>
+      <figcaption>第一天中西區＋花園夜市；第二天早市、安平，午餐後直接回高鐵站</figcaption>
+    </figure>
 
     <p class="dayhead">第一天</p>
     <div class="tl">
       <div class="stop ride">
         <p class="time">約 09:00</p>
-        <h3>汐止 → 高鐵南港站，約 09:45 發車</h3>
-        <p>計程車約 15 分鐘。台中同行者約 10:35 發車。</p>
+        <h3>汐止 → 高鐵南港站</h3>
+        <p>計程車約 15 分鐘。</p>
+      </div>
+
+      <div class="stop ride">
+        <p class="time">09:45</p>
+        <h3>南港站上車・南下</h3>
+        <p>同一班車約 10:35 停靠台中站，台中的同行者在該站上車會合。</p>
       </div>
 
       <div class="stop">
         <p class="time">約 11:20</p>
-        <h3>抵達高鐵台南站・會合</h3>
-        <div class="go">有行李可直接叫車約 25 分鐘；或搭 H31 快捷公車約 30 分鐘，憑高鐵票根免費。</div>
+        <h3>抵達高鐵台南站</h3>
+        <div class="go">
+          <ul>
+          <li><b>預約計程車</b>　約 25 分鐘，車資約 350–450 元（有行李建議這個）</li>
+          <li><b>H31 快捷公車</b>　約 30 分鐘，憑高鐵票根免費</li>
+          </ul>
+        </div>
       </div>
 
       <div class="stop meal">
@@ -357,7 +550,12 @@
       <div class="stop">
         <p class="time">約 13:50</p>
         <h3>飯店放行李</h3>
-        <div class="go">步行 10–15 分鐘，或叫車約 5 分鐘。</div>
+        <div class="go">
+          <ul>
+          <li><b>步行</b>　約 10–15 分鐘</li>
+          <li><b>計程車</b>　約 5 分鐘</li>
+          </ul>
+        </div>
       </div>
 
       <div class="stop">
@@ -380,13 +578,26 @@
         <h3>晚餐・自然熟</h3>
         <p>蔬食。老宅空間。</p>
         <p>中西區民族路二段57巷1-2號<br>（週一、週二公休）</p>
-        <div class="go">步行約 12 分鐘。</div>
+        <div class="go">
+          <ul>
+          <li><b>步行</b>　約 12 分鐘</li>
+          <li><b>計程車</b>　約 5 分鐘</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stop">
+        <p class="time">約 19:45</p>
+        <h3>花園夜市</h3>
+        <p>台南最大的夜市，超過 400 個攤位、3000 坪。攤商多、走道寬，慢慢逛兩圈剛好。</p>
+        <p>北區海安路三段533號｜17:00–00:00<br><b>只開週四、週六、週日</b></p>
+        <div class="go">自飯店叫車約 15 分鐘。</div>
       </div>
 
       <div class="stop ride">
-        <p class="time">約 19:45</p>
+        <p class="time">約 21:15</p>
         <h3>回飯店休息</h3>
-        <p>步行約 10 分鐘。隔天早上七點半出門。</p>
+        <p>叫車約 15 分鐘。隔天早上七點半出門。</p>
       </div>
     </div>
 
@@ -402,67 +613,125 @@
       <div class="stop">
         <p class="time">約 10:00</p>
         <h3>安平老街</h3>
-        <p>蜜餞、蝦餅老鋪林立，上午到中午人最多。</p>
-        <div class="go">搭 <b>98 府城台江線</b>或 2 路公車，約 25–30 分鐘；叫車約 20 分鐘。</div>
+        <p>蜜餞、蝦餅老鋪林立，上午到中午人最多。這天不趕，可待滿兩個多小時，順道走安平樹屋、夕遊出張所。</p>
+        <div class="go">
+          <ul>
+          <li><b>預約計程車</b>　約 20 分鐘，車資約 200–280 元</li>
+          <li><b>98 府城台江線</b>或 2 路公車　約 25–30 分鐘，票價 18–36 元</li>
+          </ul>
+        </div>
       </div>
 
       <div class="stop meal">
-        <p class="time">12:30</p>
+        <p class="time">約 12:40</p>
         <h3>午餐・毛蔬</h3>
         <p>蔬食。東區府東街43號。</p>
-        <div class="go">叫車約 20–25 分鐘。</div>
-      </div>
-
-      <div class="stop">
-        <p class="time">約 14:30</p>
-        <h3>奇美博物館</h3>
-        <p>室內 9:30–17:30，戶外園區免費。常設展門票 200 元。<br><b>每週三休館。</b></p>
-        <div class="go">搭紅 3／紅 4 公車，或叫車約 20 分鐘。</div>
+        <div class="go">預約計程車約 20–25 分鐘。這段公車要轉乘又繞路，建議叫車。</div>
       </div>
 
       <div class="stop ride">
-        <p class="time">約 16:40</p>
+        <p class="time">約 14:20</p>
         <h3>前往高鐵台南站</h3>
-        <p>H31 公車直達約 15 分鐘，或叫車約 15 分鐘。</p>
+        <ul class="opt">
+          <li><b>預約計程車</b>　約 25 分鐘</li>
+          <li><b>H31 公車</b>　約 30 分鐘</li>
+        </ul>
       </div>
 
       <div class="stop ride">
-        <p class="time">約 17:40</p>
+        <p class="time">約 15:00</p>
         <h3>高鐵北返</h3>
-        <p>南港約 19:20 到站，汐止約 19:40。</p>
+        <p>回程也是同一班車，台中的同行者在台中站（約 15:45）下車。</p>
+        <p>南港約 16:40 到站，汐止約 17:00。</p>
       </div>
     </div>
 
     <div class="box">
       <h4>住宿</h4>
       <ul>
-        <li><b>台南晶英酒店</b>｜新光三越隔壁，五星級</li>
-        <li><b>煙波大飯店台南館</b>｜台南美術館二館旁，附免費停車場</li>
-        <li><b>富華大飯店</b>｜林百貨走路 1 分鐘</li>
-        <li>三家都在市區步行範圍內，房型各訂單人房。</li>
+        <li><b>三人同住一間，訂雙大床房型。</b>下列為雙大床房型一晚的參考價。</li>
+        <li><b>台南晶英酒店</b>｜新光三越隔壁，五星級<br>海東客房（雙床、12 坪、可住 3–5 人）<b>約 3,700 元起</b></li>
+        <li><b>煙波大飯店台南館</b>｜台南美術館二館旁，附免費停車場<br>雙床房型<b>約 3,000 元起</b></li>
+        <li><b>富華大飯店</b>｜林百貨走路 1 分鐘<br>雙床房型<b>約 2,000 元起</b></li>
+        <li>三家都在市區步行範圍內。</li>
+        <li>以上為<b>平日參考價</b>。11–12 月非旺季，走平日房價接近底價；三人入住是否加收費用，訂房時一併向飯店確認。</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h4>叫車與車資</h4>
+      <ul>
+        <li><b>LINE GO</b>：LINE 內搜尋「LINE GO」加好友即可叫車，<b>最多可預約 7 天後</b>的車，24 小時都有，適合先把每一段排好。</li>
+        <li><b>Uber</b>：即時叫車，也可預約。車資出發前先顯示，不必擔心跳表。</li>
+        <li>高鐵台南站、台南火車站都有排班計程車，臨時要用可直接搭。</li>
+        <li><b>費率</b>：起跳 85 元（含 1.25 公里），之後每 200 公尺 5 元。晚上 11 點到早上 6 點加兩成。</li>
+        <li><b>常見車資</b>：市區短程約 120–170 元；市區到安平約 200–280 元；市區到花園夜市約 150–200 元；高鐵站到中西區約 350–450 元。</li>
       </ul>
     </div>
 
     <div class="box">
       <h4>小提醒</h4>
       <ul>
-        <li>請避開<b>週三</b>（奇美博物館休館）與<b>週一、週二</b>（自然熟公休）。</li>
+        <li>去回程都劃<b>同一班車</b>，座位可以劃在一起。</li>
+        <li><b>第一天要排週四</b>，花園夜市才有開；同時避開<b>週一、週二</b>（自然熟公休）。</li>
         <li>餐廳都會先訂位，蔬食、不加五辛。</li>
-        <li>高鐵票根請留著，進市區的公車憑票根免費。</li>
       </ul>
     </div>
   </section>
 
   <!-- ===== 兩天・開車 ===== -->
   <section id="p4" role="tabpanel" aria-labelledby="t4" hidden>
-    <p class="summary"><b>兩天一夜・開車</b><br>第一天汐止 08:00 出發，第二天約 20:30 到家。<br>車程分兩天，機動性最高。</p>
+    <p class="summary"><b>兩天一夜・開車</b><br>第一天汐止約 08:30 出門，第二天約 17:40 到家。<br>先搭高鐵到台中，<b>在台中高鐵站上車</b>，之後改開車南下。</p>
+
+    <figure class="map">
+      <svg viewBox="0 0 440 340" role="img" aria-label="行程路線示意圖">
+        <path class="m-water" d="M0 8 L58 8 C46 78 34 148 26 218 L0 258 Z"/>
+        <text class="m-key" x="6" y="282">台江內海</text>
+        <text class="m-key" x="434" y="20" text-anchor="end">↑ 國道1號・往台中</text>
+        <path class="m-route" d="M 404 28 L 192 96"/>
+        <path class="m-route2" d="M 192 96 L 72 92"/>
+        <path class="m-route2" d="M 72 92 L 252 158"/>
+        <path class="m-route2" d="M 252 158 L 404 28"/>
+        <circle class="m-pin" cx="72" cy="92" r="7"/>
+        <text class="m-label" x="72" y="120" text-anchor="middle">安平老街</text>
+        <path class="m-route" d="M 192 96 L 286 46"/>
+        <circle class="m-pin" cx="192" cy="96" r="7"/>
+        <text class="m-label" x="192" y="64" text-anchor="middle">中西區</text>
+        <text class="m-sub" x="192" y="48" text-anchor="middle">赤崁樓・國華街・林百貨</text>
+        <circle class="m-pin" cx="286" cy="46" r="7"/>
+        <text class="m-label" x="302" y="51" text-anchor="start">花園夜市</text>
+        <circle class="m-pin" cx="252" cy="158" r="7"/>
+        <text class="m-label" x="268" y="163" text-anchor="start">東區</text>
+        <text class="m-sub" x="268" y="179" text-anchor="start">毛蔬</text>
+        <circle class="m-pin-off" cx="374" cy="286" r="5"/>
+        <text class="m-label-off" x="374" y="314" text-anchor="middle">高鐵台南站</text>
+        <line class="m-route" x1="120" y1="292" x2="156" y2="292"/>
+        <text class="m-key" x="163" y="296">第一天</text>
+        <line class="m-route2" x1="120" y1="312" x2="156" y2="312"/>
+        <text class="m-key" x="163" y="316">第二天</text>
+      </svg>
+      <figcaption>第一天中西區＋花園夜市；第二天早市、安平，午餐後直接上國道北返</figcaption>
+    </figure>
 
     <p class="dayhead">第一天</p>
     <div class="tl">
       <div class="stop ride">
-        <p class="time">08:00</p>
-        <h3>汐止出發（國道1號南下）</h3>
-        <p>約 330 公里、3.5–4 小時，中途休息一次。台中同行者約 10:00 出發。</p>
+        <p class="time">約 08:30</p>
+        <h3>汐止 → 高鐵南港站</h3>
+        <p>計程車約 15 分鐘。</p>
+      </div>
+
+      <div class="stop ride">
+        <p class="time">09:00</p>
+        <h3>南港站上車 → 高鐵台中站</h3>
+        <p>約 1 小時，約 10:00 抵達。</p>
+      </div>
+
+      <div class="stop">
+        <p class="time">約 10:10</p>
+        <h3>台中高鐵站・接送會合</h3>
+        <p>同行者開車在高鐵台中站（烏日）候車區接。</p>
+        <div class="go">之後改開車南下台南，約 1 小時 45 分鐘。</div>
       </div>
 
       <div class="stop">
@@ -489,7 +758,12 @@
         <p class="time">約 16:45</p>
         <h3>林百貨</h3>
         <p>中西區忠義路二段63號</p>
-        <div class="go">步行約 10 分鐘，或停台南市美術館二館地下停車場。</div>
+        <div class="go">
+          <ul>
+          <li><b>步行</b>　約 10 分鐘，車留在原停車場</li>
+          <li><b>開車</b>　停台南市美術館二館地下停車場</li>
+          </ul>
+        </div>
       </div>
 
       <div class="stop meal">
@@ -498,8 +772,16 @@
         <p>蔬食。中西區民族路二段57巷1-2號<br>（週一、週二公休）</p>
       </div>
 
-      <div class="stop ride">
+      <div class="stop">
         <p class="time">約 19:45</p>
+        <h3>花園夜市</h3>
+        <p>台南最大的夜市，超過 400 個攤位、3000 坪。攤商多、走道寬，慢慢逛兩圈剛好。</p>
+        <p>北區海安路三段533號｜17:00–00:00<br><b>只開週四、週六、週日</b></p>
+        <div class="go">開車約 15 分鐘，夜市旁有收費停車場。</div>
+      </div>
+
+      <div class="stop ride">
+        <p class="time">約 21:15</p>
         <h3>回飯店休息</h3>
         <p>隔天早上七點半出門。</p>
       </div>
@@ -517,46 +799,80 @@
       <div class="stop">
         <p class="time">約 10:00</p>
         <h3>安平老街</h3>
-        <p>蜜餞、蝦餅老鋪林立。有車可順道看安平樹屋。</p>
+        <p>蜜餞、蝦餅老鋪林立。這天不趕，可待滿兩個多小時，順道走安平樹屋、夕遊出張所。</p>
         <div class="go">開車約 20 分鐘。安億停車場免費，步行約 10 分鐘。</div>
       </div>
 
       <div class="stop meal">
-        <p class="time">12:30</p>
+        <p class="time">約 12:40</p>
         <h3>午餐・毛蔬</h3>
         <p>蔬食。東區府東街43號。</p>
         <div class="go">開車約 20–25 分鐘。</div>
       </div>
 
-      <div class="stop">
-        <p class="time">約 14:30</p>
-        <h3>奇美博物館</h3>
-        <p>室內 9:30–17:30，戶外園區免費。常設展門票 200 元。<br><b>每週三休館。</b></p>
-        <div class="go">開車約 20 分鐘。館內有停車場。位置緊鄰國道交流道，逛完直接上高速公路。</div>
+      <div class="stop ride">
+        <p class="time">約 14:20</p>
+        <h3>開車回台中高鐵站</h3>
+        <p>約 1 小時 45 分鐘，約 16:05 抵達。</p>
       </div>
 
       <div class="stop ride">
-        <p class="time">約 16:30</p>
-        <h3>北返</h3>
-        <p>汐止約 20:00–20:30 到家。</p>
+        <p class="time">約 16:20</p>
+        <h3>台中站搭高鐵北返</h3>
+        <p>南港約 17:20 到站，汐止約 17:40。</p>
       </div>
     </div>
 
     <div class="box">
       <h4>住宿</h4>
       <ul>
-        <li><b>煙波大飯店台南館</b>｜附免費停車場，開車最推薦</li>
-        <li><b>台南晶英酒店</b>｜新光三越隔壁，五星級</li>
-        <li>兩家都在市區，房型各訂單人房。</li>
+        <li><b>三人同住一間，訂雙大床房型。</b>下列為雙大床房型一晚的參考價。</li>
+        <li><b>煙波大飯店台南館</b>｜附免費停車場，開車最推薦<br>雙床房型<b>約 3,000 元起</b></li>
+        <li><b>台南晶英酒店</b>｜新光三越隔壁，五星級<br>海東客房（雙床、12 坪、可住 3–5 人）<b>約 3,700 元起</b></li>
+        <li>兩家都在市區。</li>
+        <li>以上為<b>平日參考價</b>。11–12 月非旺季，走平日房價接近底價；三人入住是否加收費用，訂房時一併向飯店確認。</li>
       </ul>
     </div>
 
     <div class="box">
       <h4>小提醒</h4>
       <ul>
-        <li>請避開<b>週三</b>（奇美博物館休館）與<b>週一、週二</b>（自然熟公休）。</li>
+        <li>來回都在台中高鐵站接送，車上時間約 1 小時 45 分鐘。</li>
+        <li>高鐵去回程各買一段（南港↔台中），不必買到台南。</li>
+        <li><b>第一天要排週四</b>，花園夜市才有開；同時避開<b>週一、週二</b>（自然熟公休）。</li>
         <li>餐廳都會先訂位，蔬食、不加五辛。</li>
-        <li>市區路邊停車格每小時 20 元，上午 8 點至晚上 10 點收費。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 可選日期 ===== -->
+  <section id="p5" role="tabpanel" aria-labelledby="t5" hidden>
+    <p class="summary">行程若合適，再從下面挑日子。<b>建議走週四＋週五</b>，各景點與餐廳的休館、公休日都避得開。</p>
+    <div class="box" style="margin-top:0;">
+      <h4>出遊期間：11/1 – 12/20</h4>
+      <ul>
+        <li><b>各景點與餐廳的休館、公休日</b>
+          <ul>
+            <li>花園夜市（第一天晚上）　<b>只開週四、週六、週日</b>　17:00–00:00</li>
+            <li>自然熟（第一天晚餐）　<b>週一、週二公休</b></li>
+            <li>赤崁璽樓（午餐）　目前無公休日</li>
+            <li>毛蔬（晚餐／第二天午餐）　公休日訂位時確認</li>
+            <li>林百貨　全年無休，11:00–21:00</li>
+            <li>水仙宮市場・永樂市場　早市，中午前後陸續收攤</li>
+          </ul>
+        </li>
+        <li>綜合上列，<b>週四＋週五</b>最合適：第一天週四花園夜市有開，也避開自然熟的公休日。</li>
+        <li>11/28（六）為地方公職人員選舉，<b>11/26–11/30 建議避開</b>，返鄉人潮會讓高鐵票與房間都變緊。</li>
+        <li><b>兩天一夜建議日期</b>（週四＋週五）：<br>
+          11/5（四）–11/6（五）<br>
+          11/12（四）–11/13（五）<br>
+          11/19（四）–11/20（五）<br>
+          12/3（四）–12/4（五）<br>
+          12/10（四）–12/11（五）<br>
+          12/17（四）–12/18（五）</li>
+        <li><b>一日行程建議日期</b>（週四或週五）：<br>
+          11/5（四）、11/6（五）、11/12（四）、11/13（五）、11/19（四）、11/20（五）<br>
+          12/3（四）、12/4（五）、12/10（四）、12/11（五）、12/17（四）、12/18（五）</li>
       </ul>
     </div>
   </section>
