@@ -109,6 +109,8 @@
   }
   .dayhead:first-child { margin-top: 0; }
 
+  #p6 .tl::before { display: none; }
+  #p6 .stop::before { display: none; }
   .tl {
     display: grid;
     gap: 10px;
@@ -182,6 +184,18 @@
   .meal .time { color: var(--vermilion); }
   .ride { background: var(--jade-soft); border-color: var(--jade-soft); }
 
+  .gmap {
+    margin-top: 8px;
+  }
+  .gmap a {
+    display: inline-block;
+    font-size: 15px;
+    color: var(--jade);
+    text-decoration: none;
+    border-bottom: 1px solid var(--jade);
+    padding-bottom: 1px;
+  }
+
   .map {
     margin: 0 0 24px;
     background: var(--surface);
@@ -252,11 +266,12 @@
     <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false">兩天一夜<br>高鐵</button>
     <button class="tab" role="tab" id="t4" aria-controls="p4" aria-selected="false">兩天一夜<br>開車</button>
     <button class="tab wide" role="tab" id="t5" aria-controls="p5" aria-selected="false">各景點休館日</button>
+    <button class="tab wide" role="tab" id="t6" aria-controls="p6" aria-selected="false">其他餐廳選擇</button>
   </div>
 
   <!-- ===== 一日・高鐵 ===== -->
   <section id="p1" role="tabpanel" aria-labelledby="t1">
-    <p class="summary"><b>一日・高鐵</b><br>汐止約 09:30 出門，約 22:15 到家。<br>三人搭<b>同一班高鐵</b>，台中的同行者在台中站上車。</p>
+    <p class="summary"><b>一日・高鐵</b><br>汐止約 09:30 出門，約 22:20 到家。<br>三人搭<b>同一班高鐵</b>，台中的同行者在台中站上車。</p>
 
     <figure class="map">
       <svg viewBox="0 0 440 340" role="img" aria-label="行程路線示意圖">
@@ -284,18 +299,21 @@
         <p class="time">約 09:30</p>
         <h3>汐止 → 高鐵南港站</h3>
         <p>計程車約 15 分鐘。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%90%B5%E5%8D%97%E6%B8%AF%E7%AB%99" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
       </div>
 
       <div class="stop ride">
         <p class="time">10:15</p>
         <h3>南港站上車・南下</h3>
-        <p>同一班車約 11:05 停靠台中站，台中的同行者在該站上車會合。</p>
-        <p>南港到台南約 1 小時 35 分。</p>
+        <p>同一班車約 11:15 停靠台中站，台中的同行者在該站上車會合。</p>
+        <p>南港到台南約 1 小時 45 分（最快班次 1 小時 32 分）。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%90%B5%E5%8D%97%E6%B8%AF%E7%AB%99" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
       </div>
 
       <div class="stop">
-        <p class="time">約 11:50</p>
+        <p class="time">約 12:00</p>
         <h3>抵達高鐵台南站</h3>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%90%B5%E5%8F%B0%E5%8D%97%E7%AB%99" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">
           <ul>
           <li><b>預約計程車</b>　約 25 分鐘，車資約 350–450 元</li>
@@ -305,17 +323,19 @@
       </div>
 
       <div class="stop meal">
-        <p class="time">約 12:40</p>
+        <p class="time">約 13:00</p>
         <h3>午餐・赤崁璽樓</h3>
         <p>蔬食。老洋樓改建，安靜好坐。</p>
         <p>中西區西門路二段372巷10號<br>電話 <a href="tel:062245179">06-224-5179</a></p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E8%B5%A4%E5%B4%81%E7%92%BD%E6%A8%93%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E8%A5%BF%E9%96%80%E8%B7%AF%E4%BA%8C%E6%AE%B5372%E5%B7%B710%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">公車下車後步行約 10 分鐘。</div>
       </div>
 
       <div class="stop">
-        <p class="time">約 14:20</p>
+        <p class="time">約 14:40</p>
         <h3>赤崁樓周邊・國華街</h3>
         <p>老字號餅舖、蜜餞、乾貨與小吃老店，整區可慢慢逛。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E8%8F%AF%E8%A1%97%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">從餐廳步行 3–8 分鐘。</div>
       </div>
 
@@ -323,7 +343,8 @@
         <p class="time">約 16:30</p>
         <h3>林百貨</h3>
         <p>百年老百貨，室內有冷氣可休息，頂樓有神社與觀景台。伴手禮好買。</p>
-        <p>中西區忠義路二段63號</p>
+        <p>中西區忠義路二段63號｜11:00–21:00｜免費入場</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9E%97%E7%99%BE%E8%B2%A8%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E5%BF%A0%E7%BE%A9%E8%B7%AF%E4%BA%8C%E6%AE%B563%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">
           <ul>
           <li><b>步行</b>　約 10 分鐘</li>
@@ -335,14 +356,16 @@
       <div class="stop meal">
         <p class="time">18:00</p>
         <h3>晚餐・毛蔬</h3>
-        <p>蔬食。米其林指南推薦。</p>
-        <p>東區府東街43號</p>
+        <p>蔬食。米其林指南入選。餐點為<b>五辛素</b>，能否做無五辛須先致電確認。</p>
+        <p>東區府東街43號｜電話 <a href="tel:062094699">06-209-4699</a></p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E6%AF%9B%E8%94%AC%E4%BA%9E%E6%B4%B2%E8%94%AC%E9%A3%9F%20%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E5%BA%9C%E6%9D%B1%E8%A1%9743%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">計程車約 10–15 分鐘，市區短程約 120–170 元。</div>
       </div>
 
       <div class="stop ride">
         <p class="time">約 19:40</p>
         <h3>前往高鐵台南站</h3>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%90%B5%E5%8F%B0%E5%8D%97%E7%AB%99" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <ul class="opt">
           <li><b>預約計程車</b>　約 25 分鐘</li>
           <li><b>H31 公車</b>　約 30 分鐘，回程需付費 18–36 元</li>
@@ -353,17 +376,17 @@
         <p class="time">約 20:15</p>
         <h3>高鐵北返</h3>
         <p>回程也是同一班車，台中的同行者在台中站（約 21:00）下車。</p>
-        <p>南港約 21:55 到站，汐止約 22:15。</p>
+        <p>南港約 22:00 到站，汐止約 22:20。</p>
       </div>
     </div>
 
     <div class="box">
       <h4>叫車與車資</h4>
       <ul>
-        <li><b>LINE GO</b>：LINE 內搜尋「LINE GO」加好友即可叫車，<b>最多可預約 7 天後</b>的車，24 小時都有，適合先把每一段排好。</li>
+        <li><b>LINE GO</b>：LINE 內搜尋「LINE GO」加好友即可叫車，可預約<b>30 分鐘後至 7 日內</b>的車，24 小時都有，適合先把每一段排好。</li>
         <li><b>Uber</b>：即時叫車，也可預約。車資出發前先顯示，不必擔心跳表。</li>
         <li>高鐵台南站、台南火車站都有排班計程車，臨時要用可直接搭。</li>
-        <li><b>費率</b>：起跳 85 元（含 1.25 公里），之後每 200 公尺 5 元。晚上 11 點到早上 6 點加兩成。</li>
+        <li><b>費率</b>：起跳 85 元（含 1.25 公里），之後每 200 公尺 5 元。夜間加成兩成。</li>
         <li><b>常見車資</b>：市區短程約 120–170 元；市區到安平約 200–280 元；市區到花園夜市約 150–200 元；高鐵站到中西區約 350–450 元。</li>
       </ul>
     </div>
@@ -371,7 +394,7 @@
     <div class="box">
       <h4>小提醒</h4>
       <ul>
-        <li>去回程都劃<b>同一班車</b>，座位可以劃在一起。</li>
+        <li>去回程都劃<b>同一班車</b>，座位可以劃在一起。訂票時注意避開<b>不停台中的直達車</b>（例如台北–台南直達的 1985 次）。</li>
         <li>兩家餐廳都會先訂位，蔬食、不加五辛。</li>
         <li>高鐵票根請留著，進市區的公車憑票根免費。</li>
       </ul>
@@ -410,25 +433,29 @@
         <p class="time">約 08:00</p>
         <h3>汐止 → 高鐵南港站</h3>
         <p>計程車約 15 分鐘。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%90%B5%E5%8D%97%E6%B8%AF%E7%AB%99" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
       </div>
 
       <div class="stop ride">
         <p class="time">08:30</p>
         <h3>南港站上車 → 高鐵台中站</h3>
-        <p>約 1 小時，約 09:30 抵達。</p>
+        <p>約 1 小時，約 09:35 抵達。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%90%B5%E5%8D%97%E6%B8%AF%E7%AB%99" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
       </div>
 
       <div class="stop">
-        <p class="time">約 09:40</p>
+        <p class="time">約 09:45</p>
         <h3>台中高鐵站・接送會合</h3>
         <p>同行者開車在高鐵台中站（烏日）候車區接。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%90%B5%E5%8F%B0%E4%B8%AD%E7%AB%99" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">之後改開車南下台南，約 1 小時 45 分鐘。</div>
       </div>
 
       <div class="stop">
-        <p class="time">約 11:30</p>
+        <p class="time">約 11:40</p>
         <h3>抵達台南・停車</h3>
-        <p>公園路兵配場免費停車，走到赤崁樓約 10 分鐘。</p>
+        <p>停臺南轉運站停車場（10 元／半小時、日上限 100 元，約 261 格），走到赤崁樓約 10 分鐘。路邊停車格每小時 20 元，收費至 20:00。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E5%85%AC%E5%9C%92%E8%B7%AF%E5%85%B5%E9%85%8D%E5%A0%B4%E5%81%9C%E8%BB%8A%E5%A0%B4%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
       </div>
 
       <div class="stop meal">
@@ -436,6 +463,7 @@
         <h3>午餐・赤崁璽樓</h3>
         <p>蔬食。老洋樓改建。</p>
         <p>中西區西門路二段372巷10號<br>電話 <a href="tel:062245179">06-224-5179</a></p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E8%B5%A4%E5%B4%81%E7%92%BD%E6%A8%93%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E8%A5%BF%E9%96%80%E8%B7%AF%E4%BA%8C%E6%AE%B5372%E5%B7%B710%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">餐廳沒有停車位，停好車步行 8–10 分鐘。</div>
       </div>
 
@@ -443,6 +471,7 @@
         <p class="time">約 13:40</p>
         <h3>赤崁樓周邊・國華街</h3>
         <p>老字號餅舖、蜜餞、乾貨與小吃老店。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E8%8F%AF%E8%A1%97%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">車不用動，整區步行 3–10 分鐘。</div>
       </div>
 
@@ -450,13 +479,16 @@
         <p class="time">約 15:40</p>
         <h3>安平老街</h3>
         <p>蜜餞、蝦餅老鋪林立，遊客最多的一條老街。</p>
-        <div class="go">開車約 20 分鐘。安億停車場免費，步行約 10 分鐘。</div>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E5%AE%89%E5%B9%B3%E8%80%81%E8%A1%97%20%E5%BB%B6%E5%B9%B3%E8%A1%97%20%E5%8F%B0%E5%8D%97%E5%B8%82%E5%AE%89%E5%B9%B3%E5%8D%80" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
+        <div class="go">開車約 20 分鐘。安億路路外停車場每小時 20 元（08:00–20:00 收費），步行約 8–12 分鐘。</div>
       </div>
 
       <div class="stop meal">
         <p class="time">17:40</p>
         <h3>晚餐・毛蔬</h3>
-        <p>蔬食。東區府東街43號。</p>
+        <p>蔬食。米其林指南入選。餐點為<b>五辛素</b>，能否做無五辛須先致電確認。</p>
+        <p>東區府東街43號｜電話 <a href="tel:062094699">06-209-4699</a></p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E6%AF%9B%E8%94%AC%E4%BA%9E%E6%B4%B2%E8%94%AC%E9%A3%9F%20%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E5%BA%9C%E6%9D%B1%E8%A1%9743%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">自安平開車約 20–25 分鐘。</div>
       </div>
 
@@ -485,7 +517,7 @@
 
   <!-- ===== 兩天・高鐵 ===== -->
   <section id="p3" role="tabpanel" aria-labelledby="t3" hidden>
-    <p class="summary"><b>兩天一夜・高鐵</b><br>第一天汐止約 09:00 出門，第二天約 17:00 到家。<br>三人搭<b>同一班高鐵</b>，台中的同行者在台中站上車。節奏最從容的一版。</p>
+    <p class="summary"><b>兩天一夜・高鐵</b><br>第一天汐止約 09:00 出門，第二天約 17:10 到家。<br>三人搭<b>同一班高鐵</b>，台中的同行者在台中站上車。節奏最從容的一版。</p>
 
     <figure class="map">
       <svg viewBox="0 0 440 340" role="img" aria-label="行程路線示意圖">
@@ -522,17 +554,20 @@
         <p class="time">約 09:00</p>
         <h3>汐止 → 高鐵南港站</h3>
         <p>計程車約 15 分鐘。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%90%B5%E5%8D%97%E6%B8%AF%E7%AB%99" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
       </div>
 
       <div class="stop ride">
         <p class="time">09:45</p>
         <h3>南港站上車・南下</h3>
-        <p>同一班車約 10:35 停靠台中站，台中的同行者在該站上車會合。</p>
+        <p>同一班車約 10:45 停靠台中站，台中的同行者在該站上車會合。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%90%B5%E5%8D%97%E6%B8%AF%E7%AB%99" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
       </div>
 
       <div class="stop">
-        <p class="time">約 11:20</p>
+        <p class="time">約 11:30</p>
         <h3>抵達高鐵台南站</h3>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%90%B5%E5%8F%B0%E5%8D%97%E7%AB%99" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">
           <ul>
           <li><b>預約計程車</b>　約 25 分鐘，車資約 350–450 元（有行李建議這個）</li>
@@ -542,13 +577,14 @@
       </div>
 
       <div class="stop meal">
-        <p class="time">約 12:10</p>
+        <p class="time">約 12:30</p>
         <h3>午餐・赤崁璽樓</h3>
         <p>蔬食。中西區西門路二段372巷10號<br>電話 <a href="tel:062245179">06-224-5179</a></p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E8%B5%A4%E5%B4%81%E7%92%BD%E6%A8%93%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E8%A5%BF%E9%96%80%E8%B7%AF%E4%BA%8C%E6%AE%B5372%E5%B7%B710%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
       </div>
 
       <div class="stop">
-        <p class="time">約 13:50</p>
+        <p class="time">約 14:05</p>
         <h3>飯店放行李</h3>
         <div class="go">
           <ul>
@@ -562,6 +598,7 @@
         <p class="time">約 14:30</p>
         <h3>赤崁樓周邊・國華街・保安路</h3>
         <p>老字號餅舖、蜜餞、小吃老店密集，可慢慢逛。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E8%8F%AF%E8%A1%97%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">全程步行，各店相距 3–8 分鐘。</div>
       </div>
 
@@ -569,7 +606,8 @@
         <p class="time">約 16:45</p>
         <h3>林百貨</h3>
         <p>百年老百貨，室內有冷氣。傍晚頂樓光線最好。</p>
-        <p>中西區忠義路二段63號</p>
+        <p>中西區忠義路二段63號｜11:00–21:00｜免費入場</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9E%97%E7%99%BE%E8%B2%A8%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E5%BF%A0%E7%BE%A9%E8%B7%AF%E4%BA%8C%E6%AE%B563%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">步行約 10 分鐘。</div>
       </div>
 
@@ -578,6 +616,7 @@
         <h3>晚餐・自然熟</h3>
         <p>蔬食。老宅空間。</p>
         <p>中西區民族路二段57巷1-2號<br>（週一、週二公休）</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E8%87%AA%E7%84%B6%E7%86%9F%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E6%B0%91%E6%97%8F%E8%B7%AF%E4%BA%8C%E6%AE%B557%E5%B7%B71-2%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">
           <ul>
           <li><b>步行</b>　約 12 分鐘</li>
@@ -590,7 +629,8 @@
         <p class="time">約 19:45</p>
         <h3>花園夜市</h3>
         <p>台南最大的夜市，超過 400 個攤位、3000 坪。攤商多、走道寬，慢慢逛兩圈剛好。</p>
-        <p>北區海安路三段533號｜17:00–00:00<br><b>只開週四、週六、週日</b></p>
+        <p>北區海安路三段533號｜17:00–00:00<br><b>營業日：週四、週五、週六、週日</b>（2025 年起新增週五）</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E8%8A%B1%E5%9C%92%E5%A4%9C%E5%B8%82%20%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8C%97%E5%8D%80%E6%B5%B7%E5%AE%89%E8%B7%AF%E4%B8%89%E6%AE%B5533%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">自飯店叫車約 15 分鐘。</div>
       </div>
 
@@ -603,21 +643,40 @@
 
     <p class="dayhead">第二天</p>
     <div class="tl">
-      <div class="stop">
+      <div class="stop meal">
         <p class="time">07:30</p>
-        <h3>水仙宮市場・永樂市場</h3>
-        <p>早市。七點半到九點半最熱鬧，早餐可在市場旁的素食攤用。</p>
-        <div class="go">飯店先退房寄行李，步行 10–15 分鐘。</div>
+        <h3>早餐・清祺素食點心部</h3>
+        <p>全素。城隍廟旁的老字號早點，台式與港式點心：素煎餃、小籠包、蘿蔔糕、鹹豆漿。<b>店內有內用座位</b>（是否有冷氣僅單一來源提及，可先致電確認）。早上五點就開，晚來熱門品項會賣完。</p>
+        <p>中西區青年路135號｜電話 <a href="tel:062285781">06-228-5781</a><br>05:00–11:30、14:00–21:00（週一公休）</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E6%B8%85%E7%A5%BA%E7%B4%A0%E9%A3%9F%E9%BB%9E%E5%BF%83%E9%83%A8%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E9%9D%92%E5%B9%B4%E8%B7%AF135%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
       </div>
 
       <div class="stop">
-        <p class="time">約 10:00</p>
+        <p class="time">約 08:20</p>
+        <h3>東菜市</h3>
+        <p>1908 年創立的百年市場，就在清祺門口這條青年路上，緊鄰台灣府城隍廟。金鳳麵店、阿嘉香腸熟肉、邱惠美鳳梨酥等老攤都在裡面，攤商多為老台南人。</p>
+        <p>中西區青年路164巷26號｜市場處公告 07:00–12:00<br><b>週一及農曆十七日公休</b></p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E8%8F%9C%E5%B8%82%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E9%9D%92%E5%B9%B4%E8%B7%AF" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
+        <div class="go">飯店先退房寄行李。清祺走出來就是市場。</div>
+      </div>
+
+      <div class="stop">
+        <p class="time">約 09:10</p>
+        <h3>水仙宮市場・永樂市場</h3>
+        <p>另一頭的早市，攤商與在地長者最密集。水仙宮多數攤 07:30–11:30，永樂市場的小吃攤會賣到下午。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E6%B0%B8%E6%A8%82%E5%B8%82%E5%A0%B4%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E5%9C%8B%E8%8F%AF%E8%A1%97%E4%B8%89%E6%AE%B5" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
+        <div class="go">自東菜市步行約 15 分鐘，或計程車約 5 分鐘。</div>
+      </div>
+
+      <div class="stop">
+        <p class="time">約 10:30</p>
         <h3>安平老街</h3>
         <p>蜜餞、蝦餅老鋪林立，上午到中午人最多。這天不趕，可待滿兩個多小時，順道走安平樹屋、夕遊出張所。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E5%AE%89%E5%B9%B3%E8%80%81%E8%A1%97%20%E5%BB%B6%E5%B9%B3%E8%A1%97%20%E5%8F%B0%E5%8D%97%E5%B8%82%E5%AE%89%E5%B9%B3%E5%8D%80" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">
           <ul>
           <li><b>預約計程車</b>　約 20 分鐘，車資約 200–280 元</li>
-          <li><b>98 府城台江線</b>或 2 路公車　約 25–30 分鐘，票價 18–36 元</li>
+          <li><b>102 路公車</b>（崑山科大–安平）　約 25–30 分鐘，單程 18 元</li>
           </ul>
         </div>
       </div>
@@ -625,13 +684,16 @@
       <div class="stop meal">
         <p class="time">約 12:40</p>
         <h3>午餐・毛蔬</h3>
-        <p>蔬食。東區府東街43號。</p>
+        <p>蔬食。米其林指南入選。餐點為<b>五辛素</b>，能否做無五辛須先致電確認。</p>
+        <p>東區府東街43號｜電話 <a href="tel:062094699">06-209-4699</a></p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E6%AF%9B%E8%94%AC%E4%BA%9E%E6%B4%B2%E8%94%AC%E9%A3%9F%20%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E5%BA%9C%E6%9D%B1%E8%A1%9743%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">預約計程車約 20–25 分鐘。這段公車要轉乘又繞路，建議叫車。</div>
       </div>
 
       <div class="stop ride">
         <p class="time">約 14:20</p>
         <h3>前往高鐵台南站</h3>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%90%B5%E5%8F%B0%E5%8D%97%E7%AB%99" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <ul class="opt">
           <li><b>預約計程車</b>　約 25 分鐘</li>
           <li><b>H31 公車</b>　約 30 分鐘</li>
@@ -641,8 +703,8 @@
       <div class="stop ride">
         <p class="time">約 15:00</p>
         <h3>高鐵北返</h3>
-        <p>回程也是同一班車，台中的同行者在台中站（約 15:45）下車。</p>
-        <p>南港約 16:40 到站，汐止約 17:00。</p>
+        <p>回程也是同一班車，台中的同行者在台中站（約 15:50）下車。</p>
+        <p>南港約 16:50 到站，汐止約 17:10。</p>
       </div>
     </div>
 
@@ -650,21 +712,21 @@
       <h4>住宿</h4>
       <ul>
         <li><b>三人同住一間，訂雙大床房型。</b>下列為雙大床房型一晚的參考價。</li>
-        <li><b>台南晶英酒店</b>｜新光三越隔壁，五星級<br>海東客房（雙床、12 坪、可住 3–5 人）<b>約 3,700 元起</b></li>
-        <li><b>煙波大飯店台南館</b>｜台南美術館二館旁，附免費停車場<br>雙床房型<b>約 3,000 元起</b></li>
-        <li><b>富華大飯店</b>｜林百貨走路 1 分鐘<br>雙床房型<b>約 2,000 元起</b></li>
+        <li><b>台南晶英酒店</b>｜新光三越隔壁，五星級<br>海東雙床房（39 ㎡）<b>約 3,500 元起</b></li>
+        <li><b>煙波大飯店台南館</b>｜中西區永福路一段269號，附免費停車場<br>豪華雙床房（30 ㎡）<b>約 2,500 元起</b></li>
+        <li><b>富華大飯店</b>｜中西區忠義路二段28號，林百貨正對面<br>雙床房（29.7 ㎡）<b>約 1,600 元起</b>｜附免費室內停車（機械式約 10 部）</li>
         <li>三家都在市區步行範圍內。</li>
-        <li>以上為<b>平日參考價</b>。11–12 月非旺季，走平日房價接近底價；三人入住是否加收費用，訂房時一併向飯店確認。</li>
+        <li>以上為訂房平台目前的最低參考價，非 11–12 月實際報價。<b>三家雙床房的標準入住人數都是 2 人</b>，第三位成人可否入住、要不要加價，各家官網都沒寫——<b>訂房前務必先打電話問</b>。</li>
       </ul>
     </div>
 
     <div class="box">
       <h4>叫車與車資</h4>
       <ul>
-        <li><b>LINE GO</b>：LINE 內搜尋「LINE GO」加好友即可叫車，<b>最多可預約 7 天後</b>的車，24 小時都有，適合先把每一段排好。</li>
+        <li><b>LINE GO</b>：LINE 內搜尋「LINE GO」加好友即可叫車，可預約<b>30 分鐘後至 7 日內</b>的車，24 小時都有，適合先把每一段排好。</li>
         <li><b>Uber</b>：即時叫車，也可預約。車資出發前先顯示，不必擔心跳表。</li>
         <li>高鐵台南站、台南火車站都有排班計程車，臨時要用可直接搭。</li>
-        <li><b>費率</b>：起跳 85 元（含 1.25 公里），之後每 200 公尺 5 元。晚上 11 點到早上 6 點加兩成。</li>
+        <li><b>費率</b>：起跳 85 元（含 1.25 公里），之後每 200 公尺 5 元。夜間加成兩成。</li>
         <li><b>常見車資</b>：市區短程約 120–170 元；市區到安平約 200–280 元；市區到花園夜市約 150–200 元；高鐵站到中西區約 350–450 元。</li>
       </ul>
     </div>
@@ -672,8 +734,8 @@
     <div class="box">
       <h4>小提醒</h4>
       <ul>
-        <li>去回程都劃<b>同一班車</b>，座位可以劃在一起。</li>
-        <li><b>第一天要排週四</b>，花園夜市才有開；同時避開<b>週一、週二</b>（自然熟公休）。</li>
+        <li>去回程都劃<b>同一班車</b>，座位可以劃在一起。訂票時注意避開<b>不停台中的直達車</b>（例如台北–台南直達的 1985 次）。</li>
+        <li>花園夜市週四至週日營業，<b>週四＋週五</b>兩天都開得到；同時避開<b>週一、週二</b>（自然熟公休）。</li>
         <li>餐廳都會先訂位，蔬食、不加五辛。</li>
       </ul>
     </div>
@@ -719,18 +781,21 @@
         <p class="time">約 08:30</p>
         <h3>汐止 → 高鐵南港站</h3>
         <p>計程車約 15 分鐘。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%90%B5%E5%8D%97%E6%B8%AF%E7%AB%99" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
       </div>
 
       <div class="stop ride">
         <p class="time">09:00</p>
         <h3>南港站上車 → 高鐵台中站</h3>
-        <p>約 1 小時，約 10:00 抵達。</p>
+        <p>約 1 小時，約 10:05 抵達。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%90%B5%E5%8D%97%E6%B8%AF%E7%AB%99" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
       </div>
 
       <div class="stop">
-        <p class="time">約 10:10</p>
+        <p class="time">約 10:15</p>
         <h3>台中高鐵站・接送會合</h3>
         <p>同行者開車在高鐵台中站（烏日）候車區接。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%90%B5%E5%8F%B0%E4%B8%AD%E7%AB%99" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">之後改開車南下台南，約 1 小時 45 分鐘。</div>
       </div>
 
@@ -744,24 +809,27 @@
         <p class="time">約 12:40</p>
         <h3>午餐・赤崁璽樓</h3>
         <p>蔬食。中西區西門路二段372巷10號<br>電話 <a href="tel:062245179">06-224-5179</a></p>
-        <div class="go">餐廳沒有停車位，建議停公園路兵配場（免費）步行約 10 分鐘。</div>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E8%B5%A4%E5%B4%81%E7%92%BD%E6%A8%93%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E8%A5%BF%E9%96%80%E8%B7%AF%E4%BA%8C%E6%AE%B5372%E5%B7%B710%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
+        <div class="go">餐廳沒有停車位，建議停臺南轉運站（10 元／半小時）再步行前往。</div>
       </div>
 
       <div class="stop">
         <p class="time">約 14:20</p>
         <h3>赤崁樓周邊・國華街・保安路</h3>
         <p>老字號餅舖、蜜餞、小吃老店密集。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E8%8F%AF%E8%A1%97%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">車不用動，整區步行。</div>
       </div>
 
       <div class="stop">
         <p class="time">約 16:45</p>
         <h3>林百貨</h3>
-        <p>中西區忠義路二段63號</p>
+        <p>中西區忠義路二段63號｜11:00–21:00｜免費入場</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9E%97%E7%99%BE%E8%B2%A8%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E5%BF%A0%E7%BE%A9%E8%B7%AF%E4%BA%8C%E6%AE%B563%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">
           <ul>
           <li><b>步行</b>　約 10 分鐘，車留在原停車場</li>
-          <li><b>開車</b>　停台南市美術館二館地下停車場</li>
+          <li><b>開車</b>　停台南市美術館二館地下停車場（林百貨當日消費滿 1,500 元可換停車券）</li>
           </ul>
         </div>
       </div>
@@ -770,13 +838,15 @@
         <p class="time">18:15</p>
         <h3>晚餐・自然熟</h3>
         <p>蔬食。中西區民族路二段57巷1-2號<br>（週一、週二公休）</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E8%87%AA%E7%84%B6%E7%86%9F%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E6%B0%91%E6%97%8F%E8%B7%AF%E4%BA%8C%E6%AE%B557%E5%B7%B71-2%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
       </div>
 
       <div class="stop">
         <p class="time">約 19:45</p>
         <h3>花園夜市</h3>
         <p>台南最大的夜市，超過 400 個攤位、3000 坪。攤商多、走道寬，慢慢逛兩圈剛好。</p>
-        <p>北區海安路三段533號｜17:00–00:00<br><b>只開週四、週六、週日</b></p>
+        <p>北區海安路三段533號｜17:00–00:00<br><b>營業日：週四、週五、週六、週日</b>（2025 年起新增週五）</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E8%8A%B1%E5%9C%92%E5%A4%9C%E5%B8%82%20%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8C%97%E5%8D%80%E6%B5%B7%E5%AE%89%E8%B7%AF%E4%B8%89%E6%AE%B5533%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">開車約 15 分鐘，夜市旁有收費停車場。</div>
       </div>
 
@@ -789,24 +859,45 @@
 
     <p class="dayhead">第二天</p>
     <div class="tl">
-      <div class="stop">
+      <div class="stop meal">
         <p class="time">07:30</p>
-        <h3>水仙宮市場・永樂市場</h3>
-        <p>早市。七點半到九點半最熱鬧，早餐可在市場旁用。</p>
-        <div class="go">市場周邊不好停車，車留在飯店走過去較方便。</div>
+        <h3>早餐・清祺素食點心部</h3>
+        <p>全素。城隍廟旁的老字號早點，台式與港式點心：素煎餃、小籠包、蘿蔔糕、鹹豆漿。<b>店內有內用座位</b>（是否有冷氣僅單一來源提及，可先致電確認）。早上五點就開，晚來熱門品項會賣完。</p>
+        <p>中西區青年路135號｜電話 <a href="tel:062285781">06-228-5781</a><br>05:00–11:30、14:00–21:00（週一公休）</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E6%B8%85%E7%A5%BA%E7%B4%A0%E9%A3%9F%E9%BB%9E%E5%BF%83%E9%83%A8%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E9%9D%92%E5%B9%B4%E8%B7%AF135%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
       </div>
 
       <div class="stop">
-        <p class="time">約 10:00</p>
+        <p class="time">約 08:20</p>
+        <h3>東菜市</h3>
+        <p>1908 年創立的百年市場，就在清祺門口這條青年路上，緊鄰台灣府城隍廟。金鳳麵店、阿嘉香腸熟肉、邱惠美鳳梨酥等老攤都在裡面，攤商多為老台南人。</p>
+        <p>中西區青年路164巷26號｜市場處公告 07:00–12:00<br><b>週一及農曆十七日公休</b></p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E8%8F%9C%E5%B8%82%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E9%9D%92%E5%B9%B4%E8%B7%AF" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
+        <div class="go">飯店先退房寄行李。市場周邊不好停車，車留在飯店走過去較方便。</div>
+      </div>
+
+      <div class="stop">
+        <p class="time">約 09:10</p>
+        <h3>水仙宮市場・永樂市場</h3>
+        <p>另一頭的早市，攤商與在地長者最密集。水仙宮多數攤 07:30–11:30，永樂市場的小吃攤會賣到下午。</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E6%B0%B8%E6%A8%82%E5%B8%82%E5%A0%B4%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E5%9C%8B%E8%8F%AF%E8%A1%97%E4%B8%89%E6%AE%B5" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
+        <div class="go">自東菜市步行約 15 分鐘。</div>
+      </div>
+
+      <div class="stop">
+        <p class="time">約 10:30</p>
         <h3>安平老街</h3>
         <p>蜜餞、蝦餅老鋪林立。這天不趕，可待滿兩個多小時，順道走安平樹屋、夕遊出張所。</p>
-        <div class="go">開車約 20 分鐘。安億停車場免費，步行約 10 分鐘。</div>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E5%AE%89%E5%B9%B3%E8%80%81%E8%A1%97%20%E5%BB%B6%E5%B9%B3%E8%A1%97%20%E5%8F%B0%E5%8D%97%E5%B8%82%E5%AE%89%E5%B9%B3%E5%8D%80" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
+        <div class="go">開車約 20 分鐘。安億路路外停車場每小時 20 元（08:00–20:00 收費），步行約 8–12 分鐘。</div>
       </div>
 
       <div class="stop meal">
         <p class="time">約 12:40</p>
         <h3>午餐・毛蔬</h3>
-        <p>蔬食。東區府東街43號。</p>
+        <p>蔬食。米其林指南入選。餐點為<b>五辛素</b>，能否做無五辛須先致電確認。</p>
+        <p>東區府東街43號｜電話 <a href="tel:062094699">06-209-4699</a></p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E6%AF%9B%E8%94%AC%E4%BA%9E%E6%B4%B2%E8%94%AC%E9%A3%9F%20%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E5%BA%9C%E6%9D%B1%E8%A1%9743%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
         <div class="go">開車約 20–25 分鐘。</div>
       </div>
 
@@ -828,9 +919,9 @@
       <ul>
         <li><b>三人同住一間，訂雙大床房型。</b>下列為雙大床房型一晚的參考價。</li>
         <li><b>煙波大飯店台南館</b>｜附免費停車場，開車最推薦<br>雙床房型<b>約 3,000 元起</b></li>
-        <li><b>台南晶英酒店</b>｜新光三越隔壁，五星級<br>海東客房（雙床、12 坪、可住 3–5 人）<b>約 3,700 元起</b></li>
+        <li><b>台南晶英酒店</b>｜新光三越隔壁，五星級<br>海東雙床房（39 ㎡）<b>約 3,500 元起</b></li>
         <li>兩家都在市區。</li>
-        <li>以上為<b>平日參考價</b>。11–12 月非旺季，走平日房價接近底價；三人入住是否加收費用，訂房時一併向飯店確認。</li>
+        <li>以上為訂房平台目前的最低參考價，非 11–12 月實際報價。<b>三家雙床房的標準入住人數都是 2 人</b>，第三位成人可否入住、要不要加價，各家官網都沒寫——<b>訂房前務必先打電話問</b>。</li>
       </ul>
     </div>
 
@@ -839,7 +930,7 @@
       <ul>
         <li>來回都在台中高鐵站接送，車上時間約 1 小時 45 分鐘。</li>
         <li>高鐵去回程各買一段（南港↔台中），不必買到台南。</li>
-        <li><b>第一天要排週四</b>，花園夜市才有開；同時避開<b>週一、週二</b>（自然熟公休）。</li>
+        <li>花園夜市週四至週日營業，<b>週四＋週五</b>兩天都開得到；同時避開<b>週一、週二</b>（自然熟公休）。</li>
         <li>餐廳都會先訂位，蔬食、不加五辛。</li>
       </ul>
     </div>
@@ -853,15 +944,18 @@
       <ul>
         <li><b>各景點與餐廳的休館、公休日</b>
           <ul>
-            <li>花園夜市（第一天晚上）　<b>只開週四、週六、週日</b>　17:00–00:00</li>
+            <li>花園夜市（第一天晚上）　<b>營業日：週四、週五、週六、週日</b>（2025 年起新增週五）　17:00–00:00</li>
             <li>自然熟（第一天晚餐）　<b>週一、週二公休</b></li>
-            <li>赤崁璽樓（午餐）　目前無公休日</li>
+            <li>赤崁璽樓（午餐）　<b>公休日說法不一</b>：查到「無公休」「週二」「週四」三種版本，<b>務必先致電確認</b></li>
             <li>毛蔬（晚餐／第二天午餐）　公休日訂位時確認</li>
-            <li>林百貨　全年無休，11:00–21:00</li>
-            <li>水仙宮市場・永樂市場　早市，中午前後陸續收攤</li>
+            <li>林百貨　11:00–21:00（官網未列公休日）</li>
+            <li>清祺素食點心部（第二天早餐）　<b>週一公休</b>　05:00–11:30、14:00–21:00</li>
+            <li>東菜市　07:00–12:00　<b>週一及農曆十七日公休</b></li>
+            <li>水仙宮市場　早市，多數攤 07:30–11:30，<b>每月第四個週一公休</b>，農曆十三、十七日下午休息</li>
+            <li>永樂市場　無固定公休，小吃攤下午仍營業</li>
           </ul>
         </li>
-        <li>綜合上列，<b>週四＋週五</b>最合適：第一天週四花園夜市有開，也避開自然熟的公休日。</li>
+        <li>綜合上列，<b>週四＋週五</b>最合適：花園夜市兩天都開，也避開自然熟與清祺的公休日。</li>
         <li>11/28（六）為地方公職人員選舉，<b>11/26–11/30 建議避開</b>，返鄉人潮會讓高鐵票與房間都變緊。</li>
         <li><b>兩天一夜建議日期</b>（週四＋週五）：<br>
           11/5（四）–11/6（五）<br>
@@ -873,6 +967,84 @@
         <li><b>一日行程建議日期</b>（週四或週五）：<br>
           11/5（四）、11/6（五）、11/12（四）、11/13（五）、11/19（四）、11/20（五）<br>
           12/3（四）、12/4（五）、12/10（四）、12/11（五）、12/17（四）、12/18（五）</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h4>出發前要先打電話確認的事</h4>
+      <ul>
+        <li><b>毛蔬 06-209-4699</b>　餐點為五辛素，能否做完全無五辛；是否有公休日。</li>
+        <li><b>赤崁璽樓 06-224-5179</b>　<b>公休日三個來源三種說法</b>（無公休／週二／週四），官網抓不到。行程第一天排週四，萬一真的週四公休就撲空，這一項最優先確認。</li>
+        <li><b>天心岩 06-292-3161</b>　現行吃到飽價格與點餐規則（660／550 兩種說法都有）。</li>
+        <li><b>飯店</b>　雙床房標準入住人數都是 2 人，<b>第三位成人可否入住、要不要加價，各家官網都沒寫</b>。</li>
+        <li><b>東菜市</b>　週一及<b>農曆十七日</b>公休，出發當週對一下農曆。</li>
+        <li><b>水仙宮市場</b>　每月第四個週一公休，農曆十三、十七日下午休息。</li>
+        <li><b>花園夜市</b>　週五是 2025 年才新增的營業日，行程若排週五，出發前再確認一次。</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ===== 其他餐廳選擇 ===== -->
+  <section id="p6" role="tabpanel" aria-labelledby="t6" hidden>
+    <p class="summary">行程裡沒排到、但口碑都很好的蔬食店，想換哪一餐都可以從這裡挑。<b>越前面越推薦。</b></p>
+
+    <div class="tl" style="padding-left:0;">
+      <div class="stop">
+        <h3>小孩吃素 新美店</h3>
+        <p>老宅改建的義式蔬食，多家媒體都推。招牌煙花女義大利麵、奶油海鮮總匯義大利麵。就在新美街，離赤崁樓與國華街走路可到。<b>店內同時有全素與五辛素，點餐時要指定全素。</b></p>
+        <p>中西區新美街120號<br>電話 <a href="tel:062200201">06-220-0201</a><br>11:00–16:00、17:00–20:00（公休日查無資料，建議先致電）</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E5%B0%8F%E5%AD%A9%E5%90%83%E7%B4%A0%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E6%96%B0%E7%BE%8E%E8%A1%97120%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
+      </div>
+
+      <div class="stop">
+        <h3>天心岩蔬食餐廳</h3>
+        <p>素食。<b>現點現做的吃到飽</b>——不是自助夾取，是坐著點菜、一道一道上桌，三個人完全點得動。2024 年公開資訊為成人 660 元、65 歲以上 600 元，<b>不另收服務費</b>，可任選 18 道分批上。也有團購券標 550 元，<b>價格與點餐規則請先致電確認</b>。</p>
+        <p>南區萬年八街1號<br>電話 <a href="tel:062923161">06-292-3161</a><br>11:30–14:00（最後點餐 13:30）、17:30–20:30（最後點餐 19:50）<br>週一公休</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E5%BF%83%E5%B2%A9%E8%94%AC%E9%A3%9F%E9%A4%90%E5%BB%B3%20%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8D%97%E5%8D%80%E8%90%AC%E5%B9%B4%E5%85%AB%E8%A1%971%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
+      </div>
+
+      <div class="stop">
+        <h3>活佛素食</h3>
+        <p>素食。台南最知名的素食 Buffet，超過百道中西式自助菜。平日 630 元、假日 710 元，另加一成。<b>免費停車場可停 300 台車</b>，開車去最方便。位置在仁德，現在的行程不會經過。</p>
+        <p>仁德區大同路三段858號<br>電話 <a href="tel:062600568">06-260-0568</a><br>11:30–14:00、17:30–20:30（<b>週三公休</b>）</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E6%B4%BB%E4%BD%9B%E7%B4%A0%E9%A3%9F%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%BB%81%E5%BE%B7%E5%8D%80%E5%A4%A7%E5%90%8C%E8%B7%AF%E4%B8%89%E6%AE%B5858%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
+      </div>
+
+      <div class="stop">
+        <h3>尚品丰素食禾食</h3>
+        <p>台南的日式素食：串燒、壽司、炸物、烤物。<b>菜單上明確標示五辛／純素／奶素</b>，點餐時最好分辨的一家。二樓有榻榻米座位，營業到晚上 11 點。</p>
+        <p>北區開元路170號<br>電話 <a href="tel:0970277531">0970-277531</a><br>11:00–14:00、17:00–23:00（<b>週三公休</b>）</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E5%B0%9A%E5%93%81%E4%B8%B0%E7%B4%A0%E9%A3%9F%E7%A6%BE%E9%A3%9F%20%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8C%97%E5%8D%80%E9%96%8B%E5%85%83%E8%B7%AF170%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
+      </div>
+
+      <div class="stop">
+        <h3>こみち食堂（小路食堂）</h3>
+        <p>純素。太郎中華拉麵的姊妹店，日式昭和風格小店，拉麵與麻辣關東煮。拉麵 210–230 元、關東煮 180 元。<b>一週只開週六、週日兩天，每天只營業三個半小時</b>，平日去不到。</p>
+        <p>中西區中正路138巷9號<br>週六、週日 17:30–21:00</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E3%81%93%E3%81%BF%E3%81%A1%E9%A3%9F%E5%A0%82%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E4%B8%AD%E6%AD%A3%E8%B7%AF138%E5%B7%B79%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
+      </div>
+
+      <div class="stop">
+        <h3>太郎中華拉麵</h3>
+        <p>純素。開業六年的純素拉麵專門店，Google 高評價、門口常排隊。每日有限定口味，叉燒用素肉做的。<b>店內只有 7 個座位</b>，平日中午不營業，長時間站著排隊要斟酌。</p>
+        <p>中西區新美街2號<br>平日 17:30–21:00、週六日 12:30–21:00<br>週一另有午餐 12:30–14:30｜<b>週三公休</b></p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E5%A4%AA%E9%83%8E%E4%B8%AD%E8%8F%AF%E6%8B%89%E9%BA%B5%20%E5%8F%B0%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E6%96%B0%E7%BE%8E%E8%A1%972%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
+      </div>
+
+      <div class="stop">
+        <h3>三津制麵</h3>
+        <p>素食。三代傳承的手工麵，招牌是素食拌麵，麵條紮實有嚼勁，配素肉燥。<b>開在鴨母寮市場裡面，座位非常少</b>；鴨母寮是在地人日常採買的市場，不是觀光型市場。</p>
+        <p>北區成功路148號（鴨母寮市場內）<br>電話 <a href="tel:0987669996">0987-669-996</a><br>09:00–13:00（週一公休）</p>
+        <p class="gmap"><a href="https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E6%B4%A5%E5%88%B6%E9%BA%B5%20%E5%8F%B0%E5%8D%97%E5%B8%82%E5%8C%97%E5%8D%80%E6%88%90%E5%8A%9F%E8%B7%AF148%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a></p>
+      </div>
+    </div>
+
+    <div class="box">
+      <h4>挑選時要注意</h4>
+      <ul>
+        <li><b>五辛</b>：上列只有標示素食類別，是否能做無五辛，訂位時要個別問清楚。</li>
+        <li><b>座位</b>：太郎中華拉麵只有 7 席且常排隊，三津制麵在鴨母寮市場內、座位也非常少，兩家都不適合久坐。</li>
+        <li>行程中已安排的是：赤崁璽樓（午餐）、自然熟（晚餐）、毛蔬（午餐）、清祺素食點心部（早餐）。</li>
       </ul>
     </div>
   </section>
